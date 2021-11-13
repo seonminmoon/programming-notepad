@@ -54,11 +54,8 @@ userSchema.pre('save', function(next){
     }
 })
 
-
-userSchema.methods.comparePassword = function(plainPassword, cb) {
-
-    //plainPassword 1234567 이것도 암호화해야함.
-    bcrypt.compare(plainPassword, this.password, function(err, isMatch) {
+userSchema.methods.comparePassword = function(requrestPassword, originPassword, cb) {
+    bcrypt.compare(requrestPassword, originPassword, function(err, isMatch) {
         if(err) return cb(err)
         cb(null, isMatch)
     })
