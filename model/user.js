@@ -77,3 +77,23 @@ userSchema.methods.generateToken = function(cb) {
 const User = mongoose.model('User', userSchema);
 
 module.exports = {User};
+
+
+
+/*
+사용자 전체 조회
+
+
+router.get('/users', (req, res) => {
+    UserService.readAll(req, res);
+});
+
+    readAll: function(req, res) {
+        User.find({}, (err, users) => {
+            if(err) return res.json({ success: false, err })
+            return res.json({ users : users })
+        })
+    },
+
+
+*/
