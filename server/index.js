@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const bodyParser = require('body-parser');
 const config = require('./config/key');
 const cookieParser = require('cookie-parser');
@@ -15,6 +14,11 @@ const mongoose = require('mongoose');
 mongoose.connect(config.mongoURI)
     .then(()=>console.log("mongo db connect success!"))
     .catch((error) => console.log(error));
+
+app.get('/api/hello', (req, res) => {
+    res.send("안녕하세요~~~~~~~");
+})
+
 
 // 전체조회
 app.get('/', (req, res) => {
@@ -80,4 +84,5 @@ app.post('/update', (req, res) => {
     )
 });
 
+const port = 5000;
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
