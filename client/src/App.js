@@ -25,6 +25,7 @@ function App() {
 
 
 function Home() {
+  document.getElementById('root').style.height = "100%";
   return (
     <div>
       <h2>Home</h2>
